@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/superchat-app/static/css/main.564ce92b.css",
+    "main.css": "/superchat-app/static/css/main.83297c71.css",
     "main.js": "/superchat-app/static/js/main.13bc23cd.js",
     "static/js/937.c61ba17a.chunk.js": "/superchat-app/static/js/937.c61ba17a.chunk.js",
     "static/js/787.fd333685.chunk.js": "/superchat-app/static/js/787.fd333685.chunk.js",
     "index.html": "/superchat-app/index.html",
-    "main.564ce92b.css.map": "/superchat-app/static/css/main.564ce92b.css.map",
+    "main.83297c71.css.map": "/superchat-app/static/css/main.83297c71.css.map",
     "main.13bc23cd.js.map": "/superchat-app/static/js/main.13bc23cd.js.map",
     "937.c61ba17a.chunk.js.map": "/superchat-app/static/js/937.c61ba17a.chunk.js.map",
     "787.fd333685.chunk.js.map": "/superchat-app/static/js/787.fd333685.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.564ce92b.css",
+    "static/css/main.83297c71.css",
     "static/js/main.13bc23cd.js"
   ]
 }
