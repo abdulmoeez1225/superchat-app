@@ -5,17 +5,17 @@ import firebase from "firebase/compat/app";
 import ChatMessage from "./ChatMessage";
 
 const ChatRoom = () => {
-  const dummy = useRef();
+  const dummy = useRef() as React.MutableRefObject<HTMLInputElement>;
   const messagesRef = firestore.collection("messages");
   const query = messagesRef.orderBy("createdAt").limit(100);
-
+  //@ts-ignore
   const [messages] = useCollectionData(query, { idField: "id" });
 
   const [formValue, setFormValue] = useState("");
 
-  const sendMessage = async (e) => {
+  const sendMessage = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
+    //@ts-ignore
     const { uid, photoURL } = auth.currentUser;
 
     await messagesRef.add({
@@ -33,7 +33,14 @@ const ChatRoom = () => {
     <>
       <main>
         {messages &&
-          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+          messages.map((msg) => (
+            <ChatMessage
+              key={msg.id}
+              message={
+                msg as { text: any; uid: any; photoURL: any; createdAt: any }
+              }
+            />
+          ))}
 
         <span ref={dummy}></span>
       </main>
