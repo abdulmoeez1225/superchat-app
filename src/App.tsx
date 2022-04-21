@@ -4,33 +4,39 @@ import "./App.css";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 import { auth } from "./firebase/config";
 import ChatRoom from "./components/ChatRoom";
 import SignIn from "./components/SignIn";
 import SignOut from "./components/SignOut";
-import Particles from "react-tsparticles";
 
 function App() {
   const [user, initialising, error] = useAuthState(auth as any);
 
-  return (
-    <div className="App">
-      <header>
-        <h1>⚛️🔥💬</h1>
-        <SignOut />
-      </header>
+  const particlesInit = async (main: any) => {
+    console.log(main);
 
-      <section>{user ? <ChatRoom /> : <SignIn />}</section>
+    await loadFull(main);
+  };
+
+  const particlesLoaded = (container: any) => {
+    console.log(container);
+  };
+
+  return (
+    <>
+      {" "}
       <Particles
         id="tsparticles"
-        // init={particlesInit}
+        init={particlesInit}
         // loaded={particlesLoaded}
         options={{
-          // background: {
-          //   color: {
-          //     value: "#0d47a1",
-          //   },
-          // },
+          background: {
+            color: {
+              value: "#0d47a1",
+            },
+          },
           particles: {
             number: {
               value: 80,
@@ -133,7 +139,15 @@ function App() {
           retina_detect: true,
         }}
       />
-    </div>
+      <div className="App">
+        <header>
+          <h1>⚛️🔥💬</h1>
+          <SignOut />
+        </header>
+
+        <section>{user ? <ChatRoom /> : <SignIn />}</section>
+      </div>
+    </>
   );
 }
 
